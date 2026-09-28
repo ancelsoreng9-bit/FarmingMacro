@@ -34,6 +34,8 @@ Each mode locks your camera to a fixed pitch and yaw while the macro is running.
 | `SUGARCANE` | 0.0 | -50 | Left → Forward → Left → Backward |
 | `PCBM` | 0.0 | -90 | Forward → Right → Forward → Left *(placeholder)* |
 
+> **Note:** There is no in-game setting for pitch and yaw. If you want to change them, you have to edit them directly in the code (the `FarmType` enum in `MelonMacroClient.java`) and rebuild the mod.
+
 `COCOA` and `PCBM` currently share the same placeholder pattern as `MELON`. Edit their sequences in the source to match your farm layout (see [Customizing](#customizing)).
 
 ## How It Works
@@ -93,7 +95,17 @@ private static final String[] SUGARCANE_NAMES = { "Left", "Forward", "Left", "Ba
 
 Change the `int[]` and matching `String[]` for `COCOA_SEQUENCE` / `PCBM_SEQUENCE` to suit your farm.
 
-**Camera angles.** Edit the pitch/yaw values in the `FarmType` enum.
+**Camera angles.** Pitch and yaw can only be changed directly in the code. Edit the values in the `FarmType` enum, then rebuild:
+
+```java
+public enum FarmType {
+    MELON(-58.5F, -90.0F),     // (pitch, yaw)
+    COCOA(-58.0F, -180.0F),
+    SUGARCANE(0.0F, -50.0F),
+    PCBM(0.0F, -90.0F);
+    ...
+}
+```
 
 **Timing and thresholds:**
 
