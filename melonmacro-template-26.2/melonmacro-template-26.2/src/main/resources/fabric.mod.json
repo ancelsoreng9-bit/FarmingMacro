@@ -1,0 +1,38 @@
+{
+  "authors": [
+      "Me!"
+  ],
+  "contact": {
+      "homepage": "https://fabricmc.net/",
+      "sources": "https://github.com/FabricMC/fabric-example-mod"
+  },
+  "depends": {
+      "fabricloader": ">=0.19.3",
+      "minecraft": "~26.2",
+      "java": ">=25",
+      "fabric-api": "*"
+  },
+  "description": "This is an example description! Tell everyone what your mod is about!",
+  "entrypoints": {
+      "main": [
+          "melonmacro.MelonMacro"
+      ],
+      "client": [
+          "melonmacro.client.MelonMacroClient"
+      ]
+  },
+  "environment": "*",
+  "icon": "assets/melonmacro/icon.png",
+  "id": "melonmacro",
+  "license": "CC0-1.0",
+  "mixins": [
+      "melonmacro.mixins.json",
+      {
+          "config": "melonmacro.client.mixins.json",
+          "environment": "client"
+      }
+  ],
+  "name": "melon.macro",
+  "schemaVersion": 1,
+  "version": "${version}"
+}
